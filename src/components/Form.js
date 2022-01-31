@@ -20,6 +20,7 @@ function Form() {
   const [portfolio, setPortfolio] = useState(null);
   const [qrImage, setQrImage] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   // const [linkModalOpen, setLinkModalOpen] = useState(false);
   // const [newFieldTitle, setNewFieldTitle] = useState("");
@@ -52,8 +53,11 @@ function Form() {
       firstName != null &&
       lastName != null &&
       email != null &&
-      github != null
+      github != null &&
+      portfolio != null &&
+      linkedIN != null
     ) {
+      setIsDisabled(false);
       setNewFields({
         // profilePicture: profilePic,
         firstName: firstName,
@@ -74,7 +78,7 @@ function Form() {
         console.log(error);
       }
     } else {
-      setError("Fill neccessary fields");
+      setError("Fill all fields");
       return;
     }
   };
@@ -308,70 +312,69 @@ function Form() {
           </div>
         </form>
 
-        <div
-          className="flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[325px] w-fit h-fit mt-10 place-self-center  "
-          id="my-node"
-        >
-          <div className=" grid place-content-center">
-            <div className="relative">
-              <img
-                src={profilePic}
-                alt="qrImage"
-                className="w-32 h-32 object-cover rounded-full shadow-lg ring-2 ring-sky-400 grid place-self-center"
-              />
-
-              <label
-                onClick={downloadImage}
-                className="cursor-pointer absolute -bottom-2 -right-2"
+        <div className="relative">
+          {!isDisabled && (
+            <label
+              onClick={downloadImage}
+              className="cursor-pointer fixed top-[16%] right-[26%]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+                className="h-10 w-10 bg-green-500 p-2 text-3xl font-bold text-white rounded-full shadow"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                  className="h-10 w-10 bg-green-500 p-2 text-3xl font-bold text-white rounded-full shadow"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                  />
-                </svg>
-              </label>
-            </div>
-          </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                />
+              </svg>
+            </label>
+          )}
+          <div
+            className="flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[325px] w-max  h-fit mt-10 place-self-center  "
+            id="my-node"
+          >
+            <img
+              src={profilePic}
+              alt="qrImage"
+              className="w-32 h-32 object-cover rounded-full shadow-lg ring-2 ring-sky-400 grid place-self-center"
+            />
 
-          <div className="flex flex-col gap-5 mt-4 text-gray-700">
-            <div className="leading-3 text-center text-black font-bold">
-              <h2 className="px-2 py-2">
-                {`${firstName?.toUpperCase()} ${lastName?.toUpperCase()} `}
-              </h2>
-              <h2 className="px-2 py-1">{email}</h2>
-            </div>
+            <div className="flex flex-col gap-5 mt-4 text-gray-700">
+              <div className="leading-3 text-center text-black font-bold">
+                <h2 className="px-2 py-2">
+                  {`${firstName?.toUpperCase()} ${lastName?.toUpperCase()} `}
+                </h2>
+                <h2 className="px-2 py-1">{email}</h2>
+              </div>
 
-            <div className="flex flex-col leading-3">
-              <h2 className=" text-sm font-bold text-gray-400">Github</h2>
-              <span className="text-black">{github}</span>
-            </div>
-            <div className="flex flex-col leading-3">
-              <h2 className=" text-sm font-bold text-gray-400">Portfolio</h2>
-              <span>{portfolio}</span>
-            </div>
-            <div className="flex flex-col leading-3">
-              <h2 className=" text-sm font-bold text-gray-400">linkedIn</h2>
-              <span>{linkedIN}</span>
-            </div>
-            <div className="flex place-content-center flex-col">
-              <img
-                src={qrImage}
-                alt="qrImage"
-                className="w-44 h-44 shadow-lg  grid place-self-center"
-              />
-              <small className="text-xs font-bold text-gray-600 self-center mt-5">
-                scan
-              </small>
+              <div className="flex flex-col leading-3">
+                <h2 className=" text-sm font-bold text-gray-400">Github</h2>
+                <span className="text-black">{github}</span>
+              </div>
+              <div className="flex flex-col leading-3">
+                <h2 className=" text-sm font-bold text-gray-400">Portfolio</h2>
+                <span>{portfolio}</span>
+              </div>
+              <div className="flex flex-col leading-3">
+                <h2 className=" text-sm font-bold text-gray-400">linkedIn</h2>
+                <span>{linkedIN}</span>
+              </div>
+              <div className="flex place-content-center flex-col">
+                <img
+                  src={qrImage}
+                  alt="qrImage"
+                  className="w-44 h-44 shadow-lg  grid place-self-center"
+                />
+                <small className="text-xs font-bold text-gray-600 self-center mt-5">
+                  scan
+                </small>
+              </div>
             </div>
           </div>
         </div>
