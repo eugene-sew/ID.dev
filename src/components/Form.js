@@ -313,28 +313,6 @@ function Form() {
         </form>
 
         <div className="relative">
-          {!isDisabled && (
-            <label
-              onClick={downloadImage}
-              className="cursor-pointer fixed top-[16%] right-[26%]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-                className="h-10 w-10 bg-green-500 p-2 text-3xl font-bold text-white rounded-full shadow"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                />
-              </svg>
-            </label>
-          )}
           <div
             className="flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[325px] w-max  h-fit mt-10 place-self-center  "
             id="my-node"
@@ -371,9 +349,14 @@ function Form() {
                   alt="qrImage"
                   className="w-44 h-44 shadow-lg  grid place-self-center"
                 />
-                <small className="text-xs font-bold text-gray-600 self-center mt-5">
-                  scan
-                </small>
+                {!isDisabled && (
+                  <label
+                    onClick={downloadImage}
+                    className="cursor-pointer w-full px-4 py-2 text-white rounded shadow bg-slate-400 text-center font-bold hover:bg-slate-600 mt-5"
+                  >
+                    Save ID
+                  </label>
+                )}
               </div>
             </div>
           </div>
