@@ -349,16 +349,18 @@ function Form() {
                   alt="qrImage"
                   className="w-44 h-44 shadow-lg  grid place-self-center"
                 />
-                {!isDisabled && (
-                  <label
-                    onClick={downloadImage}
-                    className="cursor-pointer w-full px-4 py-2 text-white rounded shadow bg-slate-400 text-center font-bold hover:bg-slate-600 mt-5"
-                  >
-                    Save ID
-                  </label>
-                )}
               </div>
             </div>
+          </div>
+          <div className=" w-full bg-white h-28 -mt-10 flex justify-center items-center">
+            {!isDisabled && (
+              <label
+                onClick={downloadImage}
+                className="cursor-pointer w-fit px-4 py-2 text-white rounded shadow bg-slate-400 text-center font-bold hover:bg-slate-600 mt-5 h-fit"
+              >
+                Save ID
+              </label>
+            )}
           </div>
         </div>
       </ReactCardFlip>
