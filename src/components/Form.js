@@ -15,9 +15,9 @@ function Form() {
   const [Error, setError] = useState("");
 
   const [email, setEmail] = useState(null);
-  const [github, setGithub] = useState(null);
-  const [linkedIN, setLinkedIn] = useState(null);
-  const [portfolio, setPortfolio] = useState(null);
+  const [github, setGithub] = useState("");
+  const [linkedIN, setLinkedIn] = useState("");
+  const [portfolio, setPortfolio] = useState("");
   const [qrImage, setQrImage] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
@@ -47,15 +47,15 @@ function Form() {
     }
   };
 
-  const generateQr = async (e) => {
-    e.preventDefault();
+  const generateQr = async () => {
+    // e.preventDefault();
     if (
       firstName != null &&
       lastName != null &&
-      email != null &&
-      github != null &&
-      portfolio != null &&
-      linkedIN != null
+      email != null
+      // github != null &&
+      // portfolio != null &&
+      // linkedIN != null
     ) {
       setIsDisabled(false);
       setNewFields({
@@ -132,7 +132,7 @@ function Form() {
                 <img
                   src={profilePic}
                   alt="ppic"
-                  className="w-32 h-32 object-cover rounded-full shadow-lg ring-2 ring-yellow-400"
+                  className="w-32 h-32 object-cover rounded-full shadow-lg ring-2 ring-slate-400"
                 />
                 <label
                   htmlFor="profilePic"
@@ -170,9 +170,9 @@ function Form() {
             <div className="flex flex-col gap-2 mt-5">
               {/* firstname */}
               <div className="w-full h-fit  py-1 flex">
-                <label className="text-base text-gray-500 col-span-1 flex-[30%]">
+                {/* <label className="text-base text-gray-500 col-span-1 flex-[30%]">
                   First Name{" "}
-                </label>
+                </label> */}
                 <input
                   type="text"
                   placeholder="first name"
@@ -186,9 +186,9 @@ function Form() {
 
               {/* lastname */}
               <div className="w-full h-fit  py-1 flex">
-                <label className="text-base text-gray-500 col-span-1 flex-[30%]">
+                {/* <label className="text-base text-gray-500 col-span-1 flex-[30%]">
                   Last Name
-                </label>
+                </label> */}
                 <input
                   type="text"
                   placeholder="last name"
@@ -202,12 +202,12 @@ function Form() {
 
               {/* email */}
               <div className="w-full h-fit  py-1 flex">
-                <label className="text-base text-gray-500 col-span-1 flex-[30%]">
+                {/* <label className="text-base text-gray-500 col-span-1 flex-[30%]">
                   Email
-                </label>
+                </label> */}
                 <input
                   type="text"
-                  placeholder="mail@mail.com"
+                  placeholder="email address"
                   className="border-0  focus:border-b-sky-500 outline-0 focus:border-b-2 rounded py-2 px-1 ml-1 flex-[70%]"
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -217,6 +217,20 @@ function Form() {
               </div>
 
               <div className="w-full h-fit  py-1 flex">
+                {/* <label className="text-base text-gray-500 col-span-1 flex-[30%]">
+                  Github Link
+                </label> */}
+                <input
+                  type="text"
+                  placeholder="github username"
+                  className="border-0  focus:border-b-sky-500 outline-0 focus:border-b-2 rounded py-2 px-1 ml-1 flex-[70%]"
+                  onChange={(e) => {
+                    setGithub(e.target.value);
+                  }}
+                />
+              </div>
+
+              {/* <div className="w-full h-fit  py-1 flex">
                 <label className="text-base text-gray-500 col-span-1 flex-[30%]">
                   linkedIn Link
                 </label>
@@ -229,24 +243,9 @@ function Form() {
                   }}
                   required
                 />
-              </div>
+              </div> */}
 
-              <div className="w-full h-fit  py-1 flex">
-                <label className="text-base text-gray-500 col-span-1 flex-[30%]">
-                  Github Link
-                </label>
-                <input
-                  type="text"
-                  placeholder="github.com/username"
-                  className="border-0  focus:border-b-sky-500 outline-0 focus:border-b-2 rounded py-2 px-1 ml-1 flex-[70%]"
-                  onChange={(e) => {
-                    setGithub(e.target.value);
-                  }}
-                  required
-                />
-              </div>
-
-              <div className="w-full h-fit  py-1 flex">
+              {/* <div className="w-full h-fit  py-1 flex">
                 <label className="text-base text-gray-500 col-span-1 flex-[30%]">
                   Portfolio Link
                 </label>
@@ -259,7 +258,7 @@ function Form() {
                   }}
                   required
                 />
-              </div>
+              </div> */}
 
               {/* no more need this part */}
               {/* 
@@ -287,7 +286,8 @@ function Form() {
 
               <button
                 className="shadow rounded py-2 text-white bg-green-500"
-                onClick={(e) => generateQr(e)}
+                // onClick={(e) => generateQr(e)}
+                onClick={generateQr}
               >
                 Generate Dev ID
               </button>
@@ -353,7 +353,7 @@ function Form() {
                 <h2 className="px-2 py-1">{email}</h2>
               </div>
 
-              <div className="flex flex-col leading-3">
+              {/* <div className="flex flex-col leading-3">
                 <h2 className=" text-sm font-bold text-gray-400">Github</h2>
                 <span className="text-black">{github}</span>
               </div>
@@ -364,7 +364,7 @@ function Form() {
               <div className="flex flex-col leading-3">
                 <h2 className=" text-sm font-bold text-gray-400">linkedIn</h2>
                 <span>{linkedIN}</span>
-              </div>
+              </div> */}
               <div className="flex place-content-center flex-col">
                 <img
                   src={qrImage}
