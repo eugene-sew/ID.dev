@@ -47,8 +47,8 @@ function Form() {
     }
   };
 
-  const generateQr = async () => {
-    // e.preventDefault();
+  const generateQr = async (e) => {
+    e.preventDefault();
     if (
       firstName != null &&
       lastName != null &&
@@ -287,7 +287,7 @@ function Form() {
               <button
                 className="shadow rounded py-2 text-white bg-green-500"
                 // onClick={(e) => generateQr(e)}
-                onClick={generateQr}
+                onClick={(e) => generateQr(e)}
               >
                 Generate Dev ID
               </button>
