@@ -2,7 +2,7 @@ import Form from "./components/Form";
 
 function App() {
   return (
-    <div className="bg-slate-400 h-screen w-full relative overflow-hidden overflow-y-scroll ">
+    <div className="bg-slate-400 h-screen w-full relative overflow-hidden overflow-y-hidden ">
       <h1 className="font-bold text-4xl text-center pt-5">ID.Dev</h1>
       <Form />
       {/* <footer className="bg-white w-[80%] h-10 bottom-0  rounded-t-lg right-[10%] hidden md:flex justify-evenly fixed mt-5">

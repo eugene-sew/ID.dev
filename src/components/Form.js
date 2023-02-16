@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import ProPic from "../images/user-circle.svg";
+import ProPic from "../images/logo.png";
 import QRCode from "qrcode";
 import ReactCardFlip from "react-card-flip";
 import * as htmlToImage from "html-to-image";
@@ -313,10 +313,7 @@ function Form() {
         </form>
 
         <div className="relative">
-          <div
-            className="flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[325px] w-max  h-fit mt-10 place-self-center  "
-            id="my-node"
-          >
+          <div className=" z-20 flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[325px] w-max  h-fit mt-10 place-self-center  ">
             <img
               src={profilePic}
               alt="qrImage"
@@ -352,7 +349,7 @@ function Form() {
               </div>
             </div>
           </div>
-          <div className=" w-full bg-white h-28 -mt-10 flex justify-center items-center">
+          <div className=" -z-10 w-full bg-slate-600 h-28 -mt-10 flex justify-center items-center">
             {!isDisabled && (
               <label
                 onClick={downloadImage}
@@ -361,6 +358,45 @@ function Form() {
                 Save ID
               </label>
             )}
+          </div>
+
+          <div className="mt-[400px]">
+            <div
+              className="relative pb-36"
+              id="my-node"
+            >
+              <div className=" z-20 flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[325px] w-max  h-fit mt-10 place-self-center  ">
+                <img
+                  src={profilePic}
+                  alt="qrImage"
+                  className="w-32 h-32 object-cover rounded-full shadow-lg ring-2 ring-sky-400 grid place-self-center"
+                />
+
+                <div className="flex flex-col gap-5 mt-4 text-gray-700">
+                  <div className="leading-3 text-center text-black font-bold">
+                    <h2 className="px-2 py-2">
+                      {`${firstName?.toUpperCase()} ${lastName?.toUpperCase()} `}
+                    </h2>
+                    <h2 className="px-2 py-1">{email}</h2>
+                  </div>
+
+                  <div className="flex place-content-center flex-col">
+                    <img
+                      src={qrImage}
+                      alt="qrImage"
+                      className="w-44 h-44 shadow-lg  grid place-self-center"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="-z-10 w-full bg-slate-600 h-28 -mt-10 flex justify-center items-center">
+                <small className="text-sm font-semibold w-fit px-4 py-2 text-white text-center mt-5 h-fit">
+                  Axlr8 Software and Coding Division
+                  <br />
+                  (SoCode)
+                </small>
+              </div>
+            </div>
           </div>
         </div>
       </ReactCardFlip>
