@@ -123,7 +123,7 @@ function Form() {
         flipDirection="horizontal"
         flipSpeedFrontToBack={1}
       >
-        <form className="flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[500px] w-[400px] h-fit mt-10 sm:place-self-center">
+        <form className="flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5 sm:w-[500px] w-[300px] h-fit mt-10 sm:place-self-center">
           <small className="text-rose-600">{Error && Error}</small>
           <div className="">
             {/* propile picture */}
@@ -312,7 +312,7 @@ function Form() {
           </div>
         </form>
 
-        <div className="relative w-[400px]">
+        <div className="relative w-[300px]">
           <div className=" z-20 flex flex-col gap-3 bg-white rounded shadow-xl  px-3 md:px-10 py-5   h-fit mt-10 place-self-center  ">
             <img
               src={profilePic}
